@@ -14,7 +14,6 @@ module Database
     password: '{password}',
     ssl_mode: 'disabled'
                     )
-
   end
 
 

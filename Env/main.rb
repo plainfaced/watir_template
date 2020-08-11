@@ -9,7 +9,7 @@ require 'sanitize'
 
 require_relative '../Env/database'
 
-require_relative '../../Watir/Site/features/pages/example'
+require_relative '../../watir_template/Site/features/pages/example'
 
 class Main
   include Example
@@ -34,25 +34,10 @@ class Main
               when 'ie'
                 Watir::Browser.new :ie
               else
-                Watir::Browser.new :chrome #, headless: true
+                Watir::Browser.new :chrome, headless: true
               end
 
     @browser = browser
-
-    case ENV['DEVICE']
-    when 'desktop'
-      @browser.window.resize_to(1920, 1080)
-    when 'tablet'
-      @browser.window.resize_to(768, 1024)
-    when 'mobile'
-      @browser.window.resize_to(412, 847)
-    else
-      @browser.window.resize_to(1920, 1080)
-    end
-  end
-
-  def mobile_resize
-    @browser.window.resize_to(375, 812)
   end
 
   # ---------------------
@@ -105,12 +90,6 @@ class Main
 
   def close
     @browser.quit
-  end
-
-  ##### HTTPARTY
-
-  def httparty_example
-    data = HTTParty.get('https://api.openweathermap.org/data/2.5/weather?q=Coburg,Victoria,AU&appid=#{api_key}')
   end
 
 end
