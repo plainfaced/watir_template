@@ -34,7 +34,7 @@ class Main
               when 'ie'
                 Watir::Browser.new :ie
               else
-                Watir::Browser.new :chrome, headless: true
+                Watir::Browser.new :chrome #, headless: true
               end
 
     @browser = browser

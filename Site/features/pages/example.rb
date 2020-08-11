@@ -1,11 +1,7 @@
 module Example
 
   def search_box
-    @browser.input(id: 'search')
-  end
-
-  def title_act
-    @browser.h5(id: 'act')
+    @browser.input(title: 'Search')
   end
 
 end
